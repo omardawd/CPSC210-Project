@@ -30,12 +30,8 @@ by having a beautiful design of my own taste.</p>
 
 ## User Stories
 
-- As a user, I want to browse photos of other users.
-- As a user, I want to post pictures of my own outfits.
-- As a user, I want to label each clothing item included in the photo.
-- As a user, I want to price each clothing item included in the photo.
-- As a user, I want to favorite photos to save it for my own record.
-- As a user, I want to go back from the listing to browse other listings. 
-- As a user, I want to add clothing items to my cart
-- As a user, I want to checkout to purchase the clothing items in my shopping cart.
+- As a user, I want to view listings of other users.
+- As a user, I want to add listings to my favorites
+- As a user, I want to view listings in my favorites.
+- As a user, I want to go back from the listing to control center. 
 
