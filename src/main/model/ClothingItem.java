@@ -1,7 +1,10 @@
 package model;
 
+import org.json.JSONObject;
+import persistence.Writable;
+
 // Represents a clothing item having a brief description, a price, and a size
-public class ClothingItem {
+public class ClothingItem implements Writable {
 
     private String itemName;
     private int itemPrice;
@@ -44,5 +47,14 @@ public class ClothingItem {
 
     public void setItemSize(String itemSize) {
         this.itemSize = itemSize;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("item description", itemName);
+        json.put("price", itemPrice);
+        json.put("size", itemSize);
+        return json;
     }
 }

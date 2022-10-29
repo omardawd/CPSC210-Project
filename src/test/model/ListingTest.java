@@ -3,9 +3,6 @@ package model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ListingTest {
@@ -98,6 +95,17 @@ public class ListingTest {
 
         listingTest.removeOneItemFromOutfit(shirtForOutfit);
         assertEquals(0, listingTest.getOutfitSize());
+    }
+
+    @Test
+    public void testSetters() {
+        listingTest.setListingTitle("Omar's Listing");
+        assertEquals("Omar's Listing", listingTest.getListingTitle());
+        listingTest.setAuthor("The Author");
+        assertEquals("The Author", listingTest.getListingAuthor());
+        listingTest.setListingTitleAuthor("title", "author");
+        assertEquals("author", listingTest.getListingAuthor());
+        assertEquals("title", listingTest.getListingTitle());
     }
 
 }

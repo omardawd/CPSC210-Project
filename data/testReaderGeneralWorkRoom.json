@@ -1,0 +1,27 @@
+{
+  "Store Name": "Omar's Store",
+  "Listings": [
+    {
+      "author": "Omar Dawoud",
+      "Outfit": [
+        {
+          "size": "Small",
+          "price": 10,
+          "item description": "Jacket"
+        }
+      ],
+      "title": "The Test Listing"
+    }
+  ],
+  "Favorites": [{
+    "author": "Omar Dawoud",
+    "Outfit": [
+      {
+        "size": "Small",
+        "price": 10,
+        "item description": "JAcket"
+      }
+    ],
+    "title": "The Test Listing"
+  }]
+}

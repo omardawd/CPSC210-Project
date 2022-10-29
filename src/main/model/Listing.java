@@ -1,10 +1,14 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
 import java.util.List;
 
 // Represents a listing having a title, author, and a list of clothingItems
-public class Listing {
+public class Listing implements Writable {
 
     private String listingTitle;
     private String listingAuthor;
@@ -56,6 +60,11 @@ public class Listing {
         return clothingItems.get(itemID);
     }
 
+    // EFFECTS: returns the list of outfit in a listing
+    public List<ClothingItem> getOutfit() {
+        return clothingItems;
+    }
+
     public void setListingTitle(String listingTitle) {
         this.listingTitle = listingTitle;
     }
@@ -67,6 +76,26 @@ public class Listing {
     public void setListingTitleAuthor(String listingTitle, String author) {
         this.listingTitle = listingTitle;
         listingAuthor = author;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("title", getListingTitle());
+        json.put("author", getListingAuthor());
+        json.put("Outfit", clothingItemsToJson());
+        return json;
+    }
+
+    // EFFECTS: returns things in this workroom as a JSON array
+    private JSONArray clothingItemsToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (ClothingItem cl : clothingItems) {
+            jsonArray.put(cl.toJson());
+        }
+
+        return jsonArray;
     }
 
 }
