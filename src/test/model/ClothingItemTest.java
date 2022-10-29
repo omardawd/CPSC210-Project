@@ -17,7 +17,7 @@ public class ClothingItemTest {
     }
 
     @Test
-    void testConstructor(){
+    void testConstructor() {
         assertEquals("Nike Shirt", testClothingItem.getItemName());
         assertEquals(10, testClothingItem.getItemPrice());
         assertEquals(0, testBadPriceClothingItem.getItemPrice());

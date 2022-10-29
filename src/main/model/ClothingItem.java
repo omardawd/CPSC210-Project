@@ -11,9 +11,9 @@ public class ClothingItem implements Writable {
     private String itemSize;
 
     /*
-    * REQUIRES: itemName has a non-zero length, itemPrice > 0, itemSize has a non-zero length
-    * MODIFIES: itemDescription is set to itemName, price is set to itemPrice, size is set to itemSize
-    *           if price >= 0 then itemPrice is set to price, otherwise itemPrice is zero.
+     * REQUIRES: itemName has a non-zero length, itemPrice > 0, itemSize has a non-zero length
+     * MODIFIES: itemDescription is set to itemName, price is set to itemPrice, size is set to itemSize
+     *           if price >= 0 then itemPrice is set to price, otherwise itemPrice is zero.
      */
     public ClothingItem(String itemDescription, int price, String size) {
         itemName = itemDescription;

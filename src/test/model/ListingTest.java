@@ -3,6 +3,10 @@ package model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ListingTest {
@@ -15,7 +19,7 @@ public class ListingTest {
 
     @BeforeEach
     void runBefore() {
-        listingTest = new Listing("This is a Listing","Omar Dawoud");
+        listingTest = new Listing("This is a Listing", "Omar Dawoud");
         jacketForOutfit = new ClothingItem("Jacket", 10, "Small");
         shirtForOutfit = new ClothingItem("Shirt", 15, "Medium");
         pantsForOutfit = new ClothingItem("pants", 20, "Small");
@@ -108,4 +112,13 @@ public class ListingTest {
         assertEquals("title", listingTest.getListingTitle());
     }
 
+    @Test
+    public void getOutfitTest() {
+        listingTest.addAllItemsToOutfit(jacketForOutfit, shirtForOutfit, pantsForOutfit, shoesForOutfit);
+        assertEquals(4, listingTest.getOutfitSize());
+        ArrayList<ClothingItem> outfit = new
+                ArrayList<>(Arrays.asList(jacketForOutfit, shirtForOutfit, pantsForOutfit, shoesForOutfit));
+
+        assertEquals(outfit, listingTest.getOutfit());
+    }
 }
