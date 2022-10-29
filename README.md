@@ -34,4 +34,5 @@ by having a beautiful design of my own taste.</p>
 - As a user, I want to add listings to my favorites
 - As a user, I want to view listings in my favorites.
 - As a user, I want to go back from the listing to control center. 
-
+- As a user, I want to save my favorites and added listings from center.
+- As a user, I want to load my favorites and added listings from control center. 
