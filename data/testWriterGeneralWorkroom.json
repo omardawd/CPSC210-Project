@@ -1,0 +1,21 @@
+{
+    "Store Name": "My Store",
+    "Listings": [{
+        "author": "Omar",
+        "Outfit": [{
+            "size": "Small",
+            "price": 10,
+            "item description": "Jacket"
+        }],
+        "title": "Some Listing"
+    }],
+    "Favorites": [{
+        "author": "Omar",
+        "Outfit": [{
+            "size": "Small",
+            "price": 10,
+            "item description": "Jacket"
+        }],
+        "title": "Some Favorite"
+    }]
+}
