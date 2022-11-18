@@ -98,4 +98,8 @@ public class Listing implements Writable {
         return jsonArray;
     }
 
+    @Override
+    public String toString() {
+        return getListingTitle() + " BY " + getListingAuthor();
+    }
 }

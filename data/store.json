@@ -52,52 +52,32 @@
                 }
             ],
             "title": "The Daily Commuter"
-        },
-        {
-            "author": "omar",
-            "Outfit": [{
-                "size": "small",
-                "price": 25,
-                "item description": "jacket"
-            }],
-            "title": "some listing"
         }
     ],
-    "Favorites": [
-        {
-            "author": "omar",
-            "Outfit": [{
-                "size": "small",
+    "Favorites": [{
+        "author": "Omar Dawoud",
+        "Outfit": [
+            {
+                "size": "Small",
                 "price": 25,
-                "item description": "jacket"
-            }],
-            "title": "some listing"
-        },
-        {
-            "author": "Omar Dawoud",
-            "Outfit": [
-                {
-                    "size": "Medium",
-                    "price": 30,
-                    "item description": "Stussy Jacket"
-                },
-                {
-                    "size": "Small",
-                    "price": 20,
-                    "item description": "Palace Shirt"
-                },
-                {
-                    "size": "32x30",
-                    "price": 40,
-                    "item description": "Polo Corduroy Pants"
-                },
-                {
-                    "size": "11",
-                    "price": 100,
-                    "item description": "White Bapestas"
-                }
-            ],
-            "title": "The Daily Commuter"
-        }
-    ]
+                "item description": "Nike Jacket"
+            },
+            {
+                "size": "X-Small",
+                "price": 12,
+                "item description": "A&F Shirt"
+            },
+            {
+                "size": "29x30",
+                "price": 40,
+                "item description": "Dickies 874"
+            },
+            {
+                "size": "10",
+                "price": 100,
+                "item description": "White converse"
+            }
+        ],
+        "title": "My Fall Outfit!"
+    }]
 }

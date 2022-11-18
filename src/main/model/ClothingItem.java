@@ -57,4 +57,9 @@ public class ClothingItem implements Writable {
         json.put("size", itemSize);
         return json;
     }
+
+    @Override
+    public String toString() {
+        return getItemName() + " | Size: " + getItemSize() + " | Price: " + getItemPrice() + "\n\n";
+    }
 }
