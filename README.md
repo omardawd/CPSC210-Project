@@ -36,3 +36,13 @@ by having a beautiful design of my own taste.</p>
 - As a user, I want to go back from the listing to control center. 
 - As a user, I want to save my favorites and added listings from center.
 - As a user, I want to load my favorites and added listings from control center. 
+
+# Instructions for Grader
+
+- You can generate the first required event related to adding Xs to a Y by pressing "Add a Listing" to create your
+your own listing which is then added automatically to the display
+- You can generate the second required event related to adding Xs to a Y by choosing "Add to Favorites" to add the 
+selected listing to the favorites component
+- You can locate my visual component by choosing any listing to see the image attached
+- You can save the state of my application by pressing "Save Data"
+- You can reload the state of my application by pressing "Load Data"

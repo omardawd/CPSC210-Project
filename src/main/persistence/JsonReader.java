@@ -58,8 +58,6 @@ public class JsonReader {
             jsonObject = jsonArray.getJSONObject(i);
             Listing listing = readListing(jsonObject);
             store.addListingToFavoritesInStore(listing);
-            //for loop with call to read recipe and that recipe using addfavorites
-            // don't need addFav for this or edited
         }
     }
 
@@ -83,6 +81,9 @@ public class JsonReader {
         ArrayList<ClothingItem> outfit = readOutfit(jsonObject.getJSONArray("Outfit"));
 
         Listing oneListing = new Listing(name, author);
+        for (ClothingItem item : outfit) {
+            oneListing.addOneItemToOutfit(item);
+        }
         return oneListing;
     }
 

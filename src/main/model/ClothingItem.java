@@ -60,6 +60,6 @@ public class ClothingItem implements Writable {
 
     @Override
     public String toString() {
-        return getItemName() + " | Size: " + getItemSize() + " | Price: " + getItemPrice() + "\n\n";
+        return "\n\t\nItem: " + getItemName() + " | Size: " + getItemSize() + " | Price: " + getItemPrice() + "\n";
     }
 }

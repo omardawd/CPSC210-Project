@@ -52,32 +52,86 @@
                 }
             ],
             "title": "The Daily Commuter"
+        },
+        {
+            "author": "marten",
+            "Outfit": [
+                {
+                    "size": "small",
+                    "price": 10,
+                    "item description": "shirt"
+                },
+                {
+                    "size": "mm",
+                    "price": 30,
+                    "item description": "hi"
+                },
+                {
+                    "size": "rye",
+                    "price": 30,
+                    "item description": "bye"
+                },
+                {
+                    "size": "hello",
+                    "price": 90,
+                    "item description": "gg"
+                }
+            ],
+            "title": "fit"
         }
     ],
-    "Favorites": [{
-        "author": "Omar Dawoud",
-        "Outfit": [
-            {
-                "size": "Small",
-                "price": 25,
-                "item description": "Nike Jacket"
-            },
-            {
-                "size": "X-Small",
-                "price": 12,
-                "item description": "A&F Shirt"
-            },
-            {
-                "size": "29x30",
-                "price": 40,
-                "item description": "Dickies 874"
-            },
-            {
-                "size": "10",
-                "price": 100,
-                "item description": "White converse"
-            }
-        ],
-        "title": "My Fall Outfit!"
-    }]
+    "Favorites": [
+        {
+            "author": "Omar Dawoud",
+            "Outfit": [
+                {
+                    "size": "Small",
+                    "price": 25,
+                    "item description": "Nike Jacket"
+                },
+                {
+                    "size": "X-Small",
+                    "price": 12,
+                    "item description": "A&F Shirt"
+                },
+                {
+                    "size": "29x30",
+                    "price": 40,
+                    "item description": "Dickies 874"
+                },
+                {
+                    "size": "10",
+                    "price": 100,
+                    "item description": "White converse"
+                }
+            ],
+            "title": "My Fall Outfit!"
+        },
+        {
+            "author": "Omar Dawoud",
+            "Outfit": [
+                {
+                    "size": "Medium",
+                    "price": 30,
+                    "item description": "Stussy Jacket"
+                },
+                {
+                    "size": "Small",
+                    "price": 20,
+                    "item description": "Palace Shirt"
+                },
+                {
+                    "size": "32x30",
+                    "price": 40,
+                    "item description": "Polo Corduroy Pants"
+                },
+                {
+                    "size": "11",
+                    "price": 100,
+                    "item description": "White Bapestas"
+                }
+            ],
+            "title": "The Daily Commuter"
+        }
+    ]
 }
