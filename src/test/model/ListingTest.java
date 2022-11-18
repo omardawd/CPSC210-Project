@@ -30,6 +30,7 @@ public class ListingTest {
     public void constructorTest() {
         assertEquals("This is a Listing", listingTest.getListingTitle());
         assertEquals("Omar Dawoud", listingTest.getListingAuthor());
+        assertEquals("This is a Listing BY Omar Dawoud", listingTest.toString());
     }
 
     @Test

@@ -16,12 +16,14 @@ public class ClothingItemTest {
         testBadPriceClothingItem = new ClothingItem("Jacket", -10, "Small");
     }
 
+
     @Test
     void testConstructor() {
         assertEquals("Nike Shirt", testClothingItem.getItemName());
         assertEquals(10, testClothingItem.getItemPrice());
         assertEquals(0, testBadPriceClothingItem.getItemPrice());
         assertEquals("Medium", testClothingItem.getItemSize());
+        assertEquals("\n\t\nItem: Nike Shirt | Size: Medium | Price: 10\n", testClothingItem.toString());
     }
 
     @Test
