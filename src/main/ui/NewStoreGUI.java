@@ -7,20 +7,19 @@ import model.Store;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import javax.swing.text.BoxView;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class NewStoreGUI extends JFrame implements ActionListener {
     // Listings list and model
-    private JList<Listing> listingsList = new JList<Listing>();
+    private JList<Listing> listingsList = new JList<>();
     private DefaultListModel<Listing> listingModel = new DefaultListModel<>();
     // Favorites list and model
-    private JList<Listing> favList = new JList<Listing>();
+    private JList<Listing> favList = new JList<>();
     private DefaultListModel<Listing> favModel = new DefaultListModel<>();
     // Clothingitem list and model
-    private JList<ClothingItem> itemList = new JList<ClothingItem>();
+    private JList<ClothingItem> itemList = new JList<>();
     private DefaultListModel<ClothingItem> itemModel = new DefaultListModel<>();
     // Panels
     private JPanel listingsPanel;
@@ -136,12 +135,12 @@ public class NewStoreGUI extends JFrame implements ActionListener {
 
         JPanel listingInfoPanel = new JPanel();
         initListingInfoPanel(listingInfoPanel, listingTitle, listingTitleField, listingAuthor, listingAuthorField);
-        createdListing = new Listing(listingTitleField.getText(), listingAuthorField.getText());
+        createdListing = new Listing("Temp", "Temp");
         createItemFieldsForListingAndPassData(listingInfoPanel, createdListing);
 
         JButton cancelButton = new JButton("Cancel");
         cancelButton.addActionListener(e -> createListingFrame.dispose());
-        JButton createButton = setupCreateListingButton(createListingFrame);
+        JButton createButton = setupCreateListingButton(createListingFrame, listingTitleField, listingAuthorField);
 
         createListingFrame.add(listingInfoPanel);
         createListingFrame.add(cancelButton);
@@ -189,9 +188,11 @@ public class NewStoreGUI extends JFrame implements ActionListener {
         oneListing.addOneItemToOutfit(createdClothingItem);
     }
 
-    public JButton setupCreateListingButton(JFrame createListingFrame) {
+    public JButton setupCreateListingButton(JFrame createListingFrame, JTextField title, JTextField author) {
         JButton createListingButton = new JButton("Create Listing!");
         createListingButton.addActionListener(e -> {
+            createdListing.setListingTitle(title.getText());
+            createdListing.setAuthor(author.getText());
             store.addListingToListingsInStore(createdListing);
             listingModel.addElement(createdListing);
             createListingFrame.dispose();
@@ -225,6 +226,10 @@ public class NewStoreGUI extends JFrame implements ActionListener {
             }
         });
 
+        continueInitViewListingsPanel(listingsPanel);
+    }
+
+    public void continueInitViewListingsPanel(JPanel listingsPanel) {
         listingsPanel.setBackground(Color.cyan);
         JSplitPane splitter = new JSplitPane(); // divides center and left side
         JScrollPane scroll = new JScrollPane(listingsList, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
@@ -251,8 +256,7 @@ public class NewStoreGUI extends JFrame implements ActionListener {
         // Listing title up top
         JLabel listingTitle = new JLabel(oneListing.getListingTitle() + " By " + oneListing.getListingAuthor());
         listingTitle.setFont(new Font("SansSerif", Font.PLAIN, 15));
-        listingTitle.setHorizontalTextPosition(JLabel.CENTER);
-        listingTitle.setVerticalTextPosition(JLabel.TOP);
+        setTextPositionForLabel(listingTitle);
         // Listing Image below title
         ImageIcon listingIcon = new ImageIcon(new ImageIcon("./data/tobs.jpg")
                 .getImage().getScaledInstance(250, 300, Image.SCALE_SMOOTH));
@@ -271,6 +275,11 @@ public class NewStoreGUI extends JFrame implements ActionListener {
         }
         listingPanel.setBackground(Color.gray);
         add(listingPanel);
+    }
+
+    public void setTextPositionForLabel(JLabel listingTitle) {
+        listingTitle.setHorizontalTextPosition(JLabel.CENTER);
+        listingTitle.setVerticalTextPosition(JLabel.TOP);
     }
 
     // Left panel that displays all the current favorite Listings in the store
@@ -295,7 +304,10 @@ public class NewStoreGUI extends JFrame implements ActionListener {
                 }
             }
         });
+        continueViewFavoritesPanel(favoritesPanel);
+    }
 
+    public void continueViewFavoritesPanel(JPanel favoritesPanel) {
         favList.setBackground(Color.GREEN);
         JSplitPane splitter = new JSplitPane(); // divides center and left side
         JScrollPane scroll = new JScrollPane(favList, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
@@ -319,8 +331,7 @@ public class NewStoreGUI extends JFrame implements ActionListener {
         // Listing title up top
         JLabel listingTitle = new JLabel(oneListing.getListingTitle() + " By " + oneListing.getListingAuthor());
         listingTitle.setFont(new Font("SansSerif", Font.PLAIN, 15));
-        listingTitle.setHorizontalTextPosition(JLabel.CENTER);
-        listingTitle.setVerticalTextPosition(JLabel.TOP);
+        setTextPositionForLabel(listingTitle);
         // Listing Image below title
         ImageIcon listingIcon = new ImageIcon(new ImageIcon("./data/tobs.jpg")
                 .getImage().getScaledInstance(250, 300, Image.SCALE_SMOOTH));
