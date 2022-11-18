@@ -34,14 +34,6 @@ public class ListingTest {
     }
 
     @Test
-    public void addOneItemToOutfitTest() {
-        assertEquals(0, listingTest.getOutfitSize());
-        listingTest.addOneItemToOutfit(jacketForOutfit);
-        assertEquals(1, listingTest.getOutfitSize());
-        assertEquals(jacketForOutfit, listingTest.getThisClothingItem(0));
-    }
-
-    @Test
     public void addOneItemToOutfitMultipleTimesTest() {
         assertEquals(0, listingTest.getOutfitSize());
         listingTest.addOneItemToOutfit(jacketForOutfit);
@@ -50,6 +42,14 @@ public class ListingTest {
         listingTest.addOneItemToOutfit(shirtForOutfit);
         assertEquals(2, listingTest.getOutfitSize());
         assertEquals(shirtForOutfit, listingTest.getThisClothingItem(1));
+    }
+
+    @Test
+    public void addOneItemToOutfitTest() {
+        assertEquals(0, listingTest.getOutfitSize());
+        listingTest.addOneItemToOutfit(jacketForOutfit);
+        assertEquals(1, listingTest.getOutfitSize());
+        assertEquals(jacketForOutfit, listingTest.getThisClothingItem(0));
     }
 
     @Test
