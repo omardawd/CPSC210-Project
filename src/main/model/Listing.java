@@ -26,6 +26,8 @@ public class Listing implements Writable {
     // EFFECTS: appends a clothingItem to the list of clothingItems
     public void addOneItemToOutfit(ClothingItem anItem) {
         clothingItems.add(anItem);
+        EventLog.getInstance().logEvent(new Event("Added a clothing item to " + getListingTitle()
+                + " listing"));
     }
 
     // MODIFIES: this
@@ -35,12 +37,16 @@ public class Listing implements Writable {
         clothingItems.add(shirt);
         clothingItems.add(pants);
         clothingItems.add(shoes);
+        EventLog.getInstance().logEvent(new Event("Added a outfit to " + getListingTitle()
+                + " listing"));
     }
 
     // MODIFIES: this
     // EFFECTS: removes an item from the clothingItems list
     public void removeOneItemFromOutfit(ClothingItem anItem) {
         clothingItems.remove(anItem);
+        EventLog.getInstance().logEvent(new Event("Removed a clothing item from " + getListingTitle()
+                + " listing"));
     }
 
     public String getListingTitle() {

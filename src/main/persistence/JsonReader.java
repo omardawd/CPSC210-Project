@@ -1,8 +1,6 @@
 package persistence;
 
-import model.ClothingItem;
-import model.Listing;
-import model.Store;
+import model.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -27,6 +25,7 @@ public class JsonReader {
     public Store read() throws IOException {
         String jsonData = readFile(source);
         JSONObject jsonObject = new JSONObject(jsonData);
+        EventLog.getInstance().logEvent(new Event("Loaded Store from previous state"));
         return parseStore(jsonObject);
     }
 

@@ -41,12 +41,16 @@ public class Store implements Writable {
     // EFFECTS: appends a listing to the listings in store
     public void addListingToListingsInStore(Listing oneListing) {
         listings.add(oneListing);
+        EventLog.getInstance().logEvent(new Event("Added " + oneListing.getListingTitle() + " listing to the"
+                + " current listings"));
     }
 
     // MODIFIES: favorites
     // EFFECTS: appends a listing to the favorites in store
     public void addListingToFavoritesInStore(Listing oneListing) {
         favorites.add(oneListing);
+        EventLog.getInstance().logEvent(new Event("Added " + oneListing.getListingTitle() + " listing to the"
+                + " favorite listings"));
     }
 
     // MODIFIES: listings
@@ -54,6 +58,8 @@ public class Store implements Writable {
     public void removeListingFromStore(Listing oneListing) {
         if (listings.contains(oneListing)) {
             listings.remove(oneListing);
+            EventLog.getInstance().logEvent(new Event("Removed " + oneListing.getListingTitle() + " listing "
+                    + "from current listings"));
         }
     }
 
@@ -62,6 +68,8 @@ public class Store implements Writable {
     public void removeListingFromFavoritesInStore(Listing oneListing) {
         if (favorites.contains(oneListing)) {
             favorites.remove(oneListing);
+            EventLog.getInstance().logEvent(new Event("Removed " + oneListing.getListingTitle() + " listing "
+                    + "from favorite listings"));
         }
     }
 
@@ -91,6 +99,8 @@ public class Store implements Writable {
     public void addThisItemToThisListingInListings(int listingID, ClothingItem cl) {
         Listing thisListing = listings.get(listingID);
         thisListing.addOneItemToOutfit(cl);
+        EventLog.getInstance().logEvent(new Event("Added " + cl.getItemName() + " item to "
+                + listings.get(listingID).getListingTitle() + " listing in current listings"));
     }
 
     // MODIFIES: favorites
@@ -98,6 +108,8 @@ public class Store implements Writable {
     public void addThisItemToThisListingInFavorites(int listingID, ClothingItem cl) {
         Listing thisListing = favorites.get(listingID);
         thisListing.addOneItemToOutfit(cl);
+        EventLog.getInstance().logEvent(new Event("Added " + cl.getItemName() + " item to "
+                + favorites.get(listingID).getListingTitle() + " listing in favorite listings"));
     }
 
     @Override

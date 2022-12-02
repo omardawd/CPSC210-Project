@@ -46,3 +46,35 @@ selected listing to the favorites component
 - You can locate my visual component by choosing any listing to see the image attached
 - You can save the state of my application by pressing "Save Data"
 - You can reload the state of my application by pressing "Load Data"
+
+# Phase 4: Task 2
+
+Fri Dec 02 15:52:49 PST 2022<br>
+Added a outfit to My Fall Outfit! listing
+
+Fri Dec 02 15:52:50 PST 2022<br>
+Added a outfit to The Daily Commuter listing
+
+Fri Dec 02 15:52:50 PST 2022 <br>
+Added My Fall Outfit! listing to the current listings
+
+Fri Dec 02 15:52:50 PST 2022<br>
+Added The Daily Commuter listing to the current listings
+
+Fri Dec 02 15:52:50 PST 2022<br>
+Added My Fall Outfit! listing to the favorite listings
+
+Fri Dec 02 15:52:50 PST 2022<br>
+Added The Daily Commuter listing to the favorite listings
+
+Fri Dec 02 15:53:04 PST 2022<br>
+Added My Fall Outfit! listing to the favorite listings
+
+Fri Dec 02 15:53:06 PST 2022<br>
+Added The Daily Commuter listing to the favorite listings
+
+Fri Dec 02 15:53:09 PST 2022<br>
+Removed My Fall Outfit! listing from favorite listings
+
+Fri Dec 02 15:53:14 PST 2022<br>
+Saved current store

@@ -1,6 +1,8 @@
 package persistence;
 
 
+import model.Event;
+import model.EventLog;
 import model.Store;
 import org.json.JSONObject;
 
@@ -26,11 +28,12 @@ public class JsonWriter {
         writer = new PrintWriter(new File(destination));
     }
 
-    // MODIFIES: this
+    // MODIFIES:ds this
     // EFFECTS: writes JSON representation of store to file
     public void write(Store store) {
         JSONObject json = store.toJson();
         saveToFile(json.toString(TAB));
+        EventLog.getInstance().logEvent(new Event("Saved current store"));
     }
 
     // MODIFIES: this

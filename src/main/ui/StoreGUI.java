@@ -1,6 +1,8 @@
 package ui;
 
 import model.ClothingItem;
+import model.Event;
+import model.EventLog;
 import model.Listing;
 import model.Store;
 import persistence.JsonReader;
@@ -15,7 +17,7 @@ import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class NewStoreGUI extends JFrame implements ActionListener {
+public class StoreGUI extends JFrame implements ActionListener {
     // Listings list and model
     private JList<Listing> listingsList = new JList<>();
     private DefaultListModel<Listing> listingModel = new DefaultListModel<>();
@@ -37,6 +39,7 @@ public class NewStoreGUI extends JFrame implements ActionListener {
     // Buttons for listing page
     private JButton addToFavButton;
     private JButton removeFromFavButton;
+    private JButton exitButton;
     // Class fields
     private Store store;
     // Data Preservers
@@ -49,7 +52,7 @@ public class NewStoreGUI extends JFrame implements ActionListener {
 
     // MODIFIES: this
     // EFFECTS: initializes JFrame with all the panels
-    public NewStoreGUI() {
+    public StoreGUI() {
         jsonWriter = new JsonWriter(JSON_STORE);
         jsonReader = new JsonReader(JSON_STORE);
         setSize(1000, 800);
@@ -120,10 +123,13 @@ public class NewStoreGUI extends JFrame implements ActionListener {
         saveButton.addActionListener(this);
         loadButton = new JButton("Load Data");
         loadButton.addActionListener(this);
+        exitButton = new JButton("Exit Store");
+        exitButton.addActionListener(this);
         // add to footer
         footer.add(addListingButton);
         footer.add(saveButton);
         footer.add(loadButton);
+        footer.add(exitButton);
         // add to frame
         add(footer, "South");
     }
@@ -184,6 +190,7 @@ public class NewStoreGUI extends JFrame implements ActionListener {
         createListingButton.addActionListener(e -> {
             createdListing.setListingTitle(title.getText());
             createdListing.setAuthor(author.getText());
+            store.addListingToListingsInStore(createdListing);
             createListingFrame.dispose();
             createAddItemsWindow(createdListing);
         });
@@ -277,7 +284,6 @@ public class NewStoreGUI extends JFrame implements ActionListener {
                 if (!e.getValueIsAdjusting()) {
                     int index = listingsList.getSelectedIndex();
                     Listing oneListing = listingModel.elementAt(index);
-                    System.out.println(oneListing.toString());
                     initListing(oneListing);
                     listingPanel.setVisible(true);
                     initBottomPanel();
@@ -362,7 +368,6 @@ public class NewStoreGUI extends JFrame implements ActionListener {
                 if (!e.getValueIsAdjusting()) {
                     int index = favList.getSelectedIndex();
                     Listing oneListing = favModel.elementAt(index);
-                    System.out.println(oneListing.toString());
                     initFavListing(oneListing);
                     favListingPanel.setVisible(true);
                     favListingPanel.updateUI();
@@ -467,7 +472,6 @@ public class NewStoreGUI extends JFrame implements ActionListener {
             jsonWriter.open();
             jsonWriter.write(store);
             jsonWriter.close();
-            System.out.println("Saved " + store.getStoreName() + " to " + JSON_STORE);
         } catch (FileNotFoundException e) {
             System.out.println("Unable to write to file: " + JSON_STORE);
         }
@@ -478,7 +482,6 @@ public class NewStoreGUI extends JFrame implements ActionListener {
     private void loadStore() {
         try {
             store = jsonReader.read();
-            System.out.println("Loaded " + store.getStoreName() + " from " + JSON_STORE);
         } catch (IOException e) {
             System.out.println("Unable to read from file: " + JSON_STORE);
         }
@@ -510,6 +513,12 @@ public class NewStoreGUI extends JFrame implements ActionListener {
         }
     }
 
+    public void printLog(EventLog e) {
+        for (Event next : e) {
+            System.out.println(next.toString() + "\n");
+        }
+    }
+
     // EFFECTS: listens to when the save or load buttons are pressed to process command
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -517,6 +526,9 @@ public class NewStoreGUI extends JFrame implements ActionListener {
             saveStore();
         } else if (e.getSource() == loadButton) {
             loadStore();
+        } else if (e.getSource() == exitButton) {
+            printLog(EventLog.getInstance());
+            System.exit(0);
         }
     }
 }
