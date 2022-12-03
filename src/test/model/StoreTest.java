@@ -57,6 +57,9 @@ public class StoreTest {
         storeTest.removeListingFromStore(listingTest2);
         assertEquals(1, storeTest.getListingsSize());
         assertEquals(listingTest1, storeTest.getListingInPositionOf(0));
+        storeTest.removeListingFromStore(listingTest2);
+        assertEquals(1, storeTest.getListingsSize());
+        assertEquals(listingTest1, storeTest.getListingInPositionOf(0));
         storeTest.removeListingFromStore(listingTest1);
         assertEquals(0, storeTest.getListingsSize());
 
@@ -65,6 +68,9 @@ public class StoreTest {
         assertEquals(2, storeTest.getFavoritesSize());
         assertEquals(listingTest1, storeTest.getFavoritesInPositionOf(0));
         assertEquals(listingTest2, storeTest.getFavoritesInPositionOf(1));
+        storeTest.removeListingFromFavoritesInStore(listingTest2);
+        assertTrue(storeTest.doesFavoritesContain(listingTest1));
+        assertFalse(storeTest.doesFavoritesContain(listingTest2));
         storeTest.removeListingFromFavoritesInStore(listingTest2);
         assertTrue(storeTest.doesFavoritesContain(listingTest1));
         assertFalse(storeTest.doesFavoritesContain(listingTest2));
