@@ -78,3 +78,14 @@ Removed My Fall Outfit! listing from favorite listings
 
 Fri Dec 02 15:53:14 PST 2022<br>
 Saved current store
+
+# Phase 4: Task 3
+
+Looking at my project, I can see how my code could be improved by reducing repetition in my 'Store' and 'StoreGUI'
+classes. 
+- Since both of these classes operate on 2 lists of the same type, they share the same functionality. 
+- Creating an abstract class or interface and then creating a 'favorites' class and a 'listings' class
+to extend would simplify my code. 
+- I have also made methods in my 'StoreGUI' that continue a method where it was left off
+to pass the checkstyle test. There is definitely some improvement that class could use to reduce the method length while
+preserving the method's purpose.
